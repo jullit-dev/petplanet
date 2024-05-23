@@ -1,0 +1,22 @@
+@use "../variables" as *;
+
+.order-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $white;
+  padding: 20px;
+  background-repeat: 12px;
+  box-shadow: 0 6px 18px rgba(#000, 0.4);
+  z-index: 1000;
+  text-align: center;
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  &__close-button {
+    padding: 10px 30px;
+  }
+}

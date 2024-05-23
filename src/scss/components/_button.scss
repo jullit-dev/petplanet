@@ -1,0 +1,62 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.button {
+  align-items: center;
+  gap: 4px;
+  width: max-content;
+  background-color: $carrot;
+  border-radius: 40px;
+  padding: 16px 24px;
+  font-weight: 700;
+  text-align: center;
+  color: $light;
+  outline: 1px solid transparent;
+  transition-property: background-color, transform;
+  text-decoration: .3s;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    background: #d36e33;
+  }
+
+  &:focus-visible {
+    outline-color: $green;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  @include laptop {
+    padding: 16px 36px;
+  }
+
+  @include mobile {
+    padding: 11px 24px;
+  }
+
+  &_green {
+    background-color: $green;
+
+    &:hover {
+      background: #00772f;
+    }
+
+    &:focus-visible {
+      outline-color: $carrot;
+    }
+  }
+
+  &_purple{
+    background-color: $purple;
+
+    &:hover {
+      background: #981fd1;
+    }
+
+    &:focus-visible {
+      outline-color: $carrot;
+    }
+  }
+}

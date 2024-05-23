@@ -1,0 +1,157 @@
+@use "../variables" as *;
+@use "../media" as *;
+
+.hero {
+  color: $light;
+  background-image: url("/img/pattern.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  background-color: $purple;
+
+  @include laptop {
+    background-image: url("/img/pattern-laptop.svg");
+  }
+
+  @include tablet {
+    background-image: url("/img/pattern-tablet.svg");
+  }
+
+  @include mobile {
+    background-image: url("/img/pattern-mobile.svg");
+  }
+
+  &_store {
+    background-color: $green;
+  }
+
+  &__bg {
+    padding: 218px 0 245px;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+
+    &_index {
+      background-image: image-set(url("/img/bg-dog.avif") type("image/avif") 1x,
+          url("/img/bg-dog@2x.avif") type("image/avif") 2x,
+          url("/img/bg-dog.webp") type("image/webp") 1x,
+          url("/img/bg-dog@2x.webp") type("image/webp") 2x,
+          url("/img/bg-dog.png") type("image/png") 1x,
+          url("/img/bg-dog@2x.png") type("image/png") 2x);
+      background-size: contain;
+
+      @include bigscreen {
+        background-image: image-set(url("/img/bg-dog-bigscreen.avif") type("image/avif") 1x,
+            url("/img/bg-dog-bigscreen@2x.avif") type("image/avif") 2x,
+            url("/img/bg-dog-bigscreen.webp") type("image/webp") 1x,
+            url("/img/bg-dog-bigscreen@2x.webp") type("image/webp") 2x,
+            url("/img/bg-dog-bigscreen.png") type("image/png") 1x,
+            url("/img/bg-dog-bigscreen@2x.png") type("image/png") 2x);
+        background-position: left 48vw bottom 0;
+        background-size: 1820px;
+      }
+
+      @include laptop {
+        padding: 148px 0 172px;
+        background-image: image-set(url("/img/bg-dog-laptop.avif") type("image/avif") 1x,
+            url("/img/bg-dog-laptop@2x.avif") type("image/avif") 2x,
+            url("/img/bg-dog-laptop.webp") type("image/webp") 1x,
+            url("/img/bg-dog-laptop@2x.webp") type("image/webp") 2x,
+            url("/img/bg-dog-laptop.png") type("image/png") 1x,
+            url("/img/bg-dog-laptop@2x.png") type("image/png") 2x);
+      }
+
+      @include tablet {
+        padding: 108px 0 461px;
+        background-image: image-set(url("/img/bg-dog-tablet.avif") type("image/avif") 1x,
+            url("/img/bg-dog-tablet@2x.avif") type("image/avif") 2x,
+            url("/img/bg-dog-tablet.webp") type("image/webp") 1x,
+            url("/img/bg-dog-tablet@2x.webp") type("image/webp") 2x,
+            url("/img/bg-dog-tablet.png") type("image/png") 1x,
+            url("/img/bg-dog-tablet@2x.png") type("image/png") 2x);
+        background-size: 655px 564px;
+      }
+
+      @include mobile {
+        padding: 100px 0 284px;
+        background-image: image-set(url("/img/bg-dog-mobile.avif") type("image/avif") 1x,
+            url("/img/bg-dog-mobile@2x.avif") type("image/avif") 2x,
+            url("/img/bg-dog-mobile.webp") type("image/webp") 1x,
+            url("/img/bg-dog-mobile@2x.webp") type("image/webp") 2x,
+            url("/img/bg-dog-mobile.png") type("image/png") 1x,
+            url("/img/bg-dog-mobile@2x.png") type("image/png") 2x);
+        background-size: 294px 261px;
+      }
+    }
+
+    &_store {
+      padding: 218px 0 245px;
+      background-image: image-set(url("/img/bg-cat.png") type("image/png") 1x,
+          url("/img/bg-cat@2x.png") type("image/png") 2x);
+      background-size: 839px;
+      background-position: right bottom;
+      background-repeat: no-repeat;
+  
+      @include laptop {
+        background-size: 639px;
+      }
+  
+      @include tablet {
+        background-size: 100%;
+      }
+    }
+
+  }
+
+  &__title {
+    max-width: 100%;
+    width: 810px;
+    margin-bottom: 50px;
+
+    @media (max-width: 1300px) {
+      width: 660px;
+    }
+
+    @include laptop {
+      width: 588px;
+      margin-bottom: 32px;
+    }
+
+    @include mobile {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    max-width: 440px;
+    margin-bottom: 60px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include bigscreen {
+      min-width: 540px;
+    }
+
+    @include laptop {
+      max-width: 360px;
+      margin-bottom: 40px;
+    }
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__store-link {
+    display: flex;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url("/img/arrow-up.svg") no-repeat center;
+    }
+  }
+}
