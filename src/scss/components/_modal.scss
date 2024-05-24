@@ -12,6 +12,10 @@
   border-radius: 24px;
   overflow: hidden;
 
+  @include mobile {
+    flex-direction: column;
+  }
+
   &::before {
     content: '';
     display: block;
@@ -19,6 +23,11 @@
     background-image: url('/img/cart-img.jpg');
     background-size: cover;
     background-position: center;
+
+    @include mobile {
+      width: 100%;
+      height: 200px;
+    }
   }
 
   &__content {
@@ -26,6 +35,10 @@
     flex-direction: column;
     width: 52%;
     padding: 24px;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &__title {
