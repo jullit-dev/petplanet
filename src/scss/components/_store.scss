@@ -115,4 +115,11 @@
     display: flex;
     justify-self: center;
   }
+
+  &__loading {
+    grid-column: 1 / 6;
+    justify-self: center;
+    align-content: center;
+    height: 150px;
+  }
 }

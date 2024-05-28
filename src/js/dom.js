@@ -12,6 +12,7 @@ export const createOrderMessage = (id) => {
   orderMessageCloseButton.classList.add('button');
   orderMessageCloseButton.classList.add('order-message__close-button');
   orderMessageCloseButton.textContent = 'Закрыть';
+  orderMessageCloseButton.ariaLabel= 'Закрыть окно с информацие о заказе';
 
   orderMessageElement.append(orderMessageText, orderMessageCloseButton);
 
@@ -31,7 +32,7 @@ const createProductCard = ({id, name, price, photoUrl}) => {
       <p class="product__price">${price}&nbsp;₽</p>
       <img class="product__image" src="${API_URL}${photoUrl}"
         alt="${name}" width="388" height="261">
-      <button class="button button_purple product__btn-add-cart" data-id="${id}">Заказать</button>
+      <button class="button button_purple product__btn-add-cart" data-id="${id}" aria-label="Добавить в корзину">Заказать</button>
     </article>
   `;
   return productCard;
@@ -61,9 +62,9 @@ export const renderCartItems = (cartItemsList, cartItems, products) => {
       <h3 class="modal__cart-item-title">${name}</h3>
       <img class="modal__cart-item-img" src="${API_URL}${photoUrl}" alt="${name}">
       <div class="modal__cart-item-count">
-        <button class="modal__btn-count modal__minus" data-id="${id}">-</button>
+        <button class="modal__btn-count modal__minus" data-id="${id}" aria-label="Уменьшить количество на одну единицу">-</button>
         <span class="modal__count">${cartItem.count}</span>
-        <button class="modal__btn-count modal__plus" data-id="${id}">+</button>
+        <button class="modal__btn-count modal__plus" data-id="${id}" aria-label="Увеличить количество на одну единицу">+</button>
       </div>
       <p class="modal__cart-item-price">${price * cartItem.count}&nbsp;₽</p>
     `;

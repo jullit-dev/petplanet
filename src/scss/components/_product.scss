@@ -11,7 +11,7 @@
   min-height: 499px;
   background-color: $white;
   overflow: hidden;
-  max-width: 340px;
+  min-width: 340px;
   align-self: center;
 
   @include tablet {

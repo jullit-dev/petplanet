@@ -16,16 +16,20 @@
   text-decoration: .3s;
   transition-timing-function: ease-in-out;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background: #d36e33;
   }
 
-  &:focus-visible {
+  &:focus-visible:not(:disabled) {
     outline-color: $green;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: scale(0.9);
+  }
+  
+  &:disabled {
+    opacity: 0.4;
   }
 
   @include laptop {
@@ -39,11 +43,11 @@
   &_green {
     background-color: $green;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: #00772f;
     }
 
-    &:focus-visible {
+    &:focus-visible:not(:disabled) {
       outline-color: $carrot;
     }
   }
@@ -51,12 +55,12 @@
   &_purple{
     background-color: $purple;
 
-    &:hover {
-      background: #981fd1;
+    &:hover:not(:disabled) {
+      background-color: #981fd1;
     }
 
-    &:focus-visible {
-      outline-color: $carrot;
+    &:focus-visible:not(:disabled) {
+      border-color: $carrot;
     }
   }
 }

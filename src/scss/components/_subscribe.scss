@@ -93,19 +93,6 @@
       background-repeat: no-repeat;
       background-position: center;
     }
-
-    &:hover:not(:disabled) {
-      background-color: #981fd1;
-    }
-
-    &:focus-visible:not(:disabled) {
-      border-color: $carrot;
-    }
-
-    &:disabled {
-      opacity: 0.4;
-    }
-
   }
 
   &__button-text {

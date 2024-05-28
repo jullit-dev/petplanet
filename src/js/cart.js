@@ -8,6 +8,7 @@ const cartItemsList = document.querySelector('.modal__cart-items');
 const modalCloseButton = document.querySelector('.modal-overlay__close-button');
 const cartTotalPriceElement = document.querySelector('.modal__cart-price');
 const cartForm = document.querySelector('.modal__cart-form');
+const buttonOrder = document.querySelector('.modal__cart-button');
 
 const calculateTotalPrice = (cartItems, products) => cartItems.reduce((acc, item) => {
   const product = products.find(prod => prod.id === item.id);
@@ -69,6 +70,10 @@ cartItemsList.addEventListener('click', ({ target }) => {
 // открытие модального окна с корзиной
 cartButton.addEventListener('click', async () => {
   modalOverlay.style.display = 'flex';
+
+  if (buttonOrder.disabled) {
+    buttonOrder.removeAttribute('disabled');
+  };
   
   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
   const ids = cartItems.map(item => item.id);
@@ -78,6 +83,7 @@ cartButton.addEventListener('click', async () => {
     const listItem = document.createElement('li');
     listItem.textContent = 'Корзина пуста';
     cartItemsList.append(listItem);
+    buttonOrder.disabled = 'disabled';
     return;
   }
 
