@@ -18,7 +18,11 @@ const calculateTotalPrice = (cartItems, products) => cartItems.reduce((acc, item
 // вывод количества товаров на кнопке корзина
 const updateCartCount = () => {
   const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
-  cartCount.textContent = cartItems.length;
+  const cartItemsCount = (cartItems) => cartItems.reduce((acc, item) => {
+    return acc + item.count;
+  }, 0);
+
+  cartCount.textContent = cartItemsCount(cartItems);
 };
 
 // добавляет в корзину
@@ -52,19 +56,23 @@ const updateCartItem = (productId, change) => {
     const products = JSON.parse(localStorage.getItem('cartProductDetails') || '[]');
     updateCartCount();
     renderCartItems(cartItemsList, cartItems, products);
+
+    const totalPrice = calculateTotalPrice(cartItems, products);
+    cartTotalPriceElement.innerHTML = `${totalPrice}&nbsp;₽`;
   }
 }
 
 cartItemsList.addEventListener('click', ({ target }) => {
   if (target.classList.contains('modal__plus')) {
     const productId = target.dataset.id;
-    updateCartItem(productId, 1)
+    const product = updateCartItem(productId, 1)
   }
 
   if (target.classList.contains('modal__minus')) {
     const productId = target.dataset.id;
     updateCartItem(productId, -1)
   }
+
 });
 
 // открытие модального окна с корзиной
