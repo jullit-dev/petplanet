@@ -62,15 +62,29 @@ const updateCartItem = (productId, change) => {
   }
 }
 
+// отображает пустую корзину
+const сlearСart = (cartItemsList) => {
+  cartItemsList.textContent = "";
+  const listItem = document.createElement('li');
+  listItem.textContent = 'Корзина пуста';
+  cartItemsList.append(listItem);
+  buttonOrder.disabled = 'disabled';
+  return;
+}
+
+// кнопки + - (добавить или удалить 1 единицу товара из корзины)
 cartItemsList.addEventListener('click', ({ target }) => {
   if (target.classList.contains('modal__plus')) {
     const productId = target.dataset.id;
-    const product = updateCartItem(productId, 1)
+    updateCartItem(productId, 1);
   }
 
   if (target.classList.contains('modal__minus')) {
     const productId = target.dataset.id;
-    updateCartItem(productId, -1)
+    updateCartItem(productId, -1);
+    if (!cartItemsList.textContent) {
+      сlearСart(cartItemsList);
+    };
   }
 
 });

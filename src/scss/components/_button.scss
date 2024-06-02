@@ -13,7 +13,7 @@
   color: $light;
   outline: 1px solid transparent;
   transition-property: background-color, transform;
-  text-decoration: .3s;
+  transition-duration: .3s;
   transition-timing-function: ease-in-out;
 
   &:hover:not(:disabled) {
