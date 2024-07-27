@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
 export default defineConfig({
+  base: '/petplanet',
   root: './src',
   publicDir: '../public',
   build: {
